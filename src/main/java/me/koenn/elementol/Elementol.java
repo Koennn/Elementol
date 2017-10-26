@@ -72,6 +72,10 @@ public class Elementol {
     public static class Items {
 
         public static final TestItem test_item = null;
+        public static final ItemElementGem fire_gem = null;
+        public static final ItemElementGem water_gem = null;
+        public static final ItemElementGem air_gem = null;
+        public static final ItemElementGem earth_gem = null;
     }
 
     /**
