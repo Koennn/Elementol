@@ -1,10 +1,14 @@
 package me.koenn.elementol.tileentities;
 
 import me.koenn.elementol.Elementol;
+import me.koenn.elementol.binding.BindingRecipe;
+import me.koenn.elementol.binding.BindingRecipeManager;
+import me.koenn.elementol.items.ModItems;
 import me.koenn.elementol.network.PacketRequestUpdateBindingStone;
 import me.koenn.elementol.network.PacketUpdateBindingStone;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EntitySelectors;
@@ -23,6 +27,8 @@ import java.util.List;
 public class TileEntityBindingStone extends TileEntity implements ITickable {
 
     public long lastChangeTime;
+    public int stage;
+    public BindingRecipe currentRecipe;
     public ItemStackHandler inventory = new ItemStackHandler(2) {
         @Override
         protected void onContentsChanged(int slot) {
@@ -41,6 +47,8 @@ public class TileEntityBindingStone extends TileEntity implements ITickable {
     public NBTTagCompound writeToNBT(NBTTagCompound compound) {
         compound.setTag("inventory", inventory.serializeNBT());
         compound.setLong("lastChangeTime", lastChangeTime);
+        compound.setInteger("stage", stage);
+        compound.setInteger("currentRecipe", currentRecipe.getId());
         return super.writeToNBT(compound);
     }
 
@@ -48,6 +56,8 @@ public class TileEntityBindingStone extends TileEntity implements ITickable {
     public void readFromNBT(NBTTagCompound compound) {
         inventory.deserializeNBT(compound.getCompoundTag("inventory"));
         lastChangeTime = compound.getLong("lastChangeTime");
+        stage = compound.getInteger("stage");
+        currentRecipe = BindingRecipeManager.getById(compound.getInteger("currentRecipe"));
         super.readFromNBT(compound);
     }
 
@@ -69,22 +79,44 @@ public class TileEntityBindingStone extends TileEntity implements ITickable {
         }
     }
 
-    public void pullItems() {
-        if (inventory.getStackInSlot(0).getItem().equals(Items.AIR)) {
-            for (EntityItem item : getCaptureItems(world, pos.getX(), pos.getY(), pos.getZ())) {
-                if (item != null) {
-                    inventory.insertItem(0, item.getItem(), false);
-                    world.removeEntity(item);
-                    return;
-                }
+    public EntityItem pullItem() {
+        for (EntityItem item : getCaptureItems(world, pos.getX(), pos.getY(), pos.getZ())) {
+            if (item != null) {
+                return item;
             }
         }
+        return null;
     }
 
     @Override
     public void update() {
         if (!world.isRemote) {
-            pullItems();
+            EntityItem item = pullItem();
+            if (item == null) {
+                return;
+            }
+
+            ItemStack input = item.getItem();
+            ItemStack current = inventory.getStackInSlot(0);
+
+            //Check if it doesn't contain an item -> insert primary input.
+            if (current == null || current.getItem().equals(Items.AIR)) {
+                this.world.removeEntity(item);
+                this.inventory.setStackInSlot(0, new ItemStack(ModItems.blank_gem));
+                //Check if there is no recipe selected and if the input is a valid identifier -> insert identifier.
+            } else if (this.currentRecipe == null && BindingRecipeManager.isIdentifier(current, input)) {
+                this.world.removeEntity(item);
+                this.currentRecipe = BindingRecipeManager.getRecipe(current, input);
+                this.stage = 0;
+                this.inventory.setStackInSlot(1, this.currentRecipe.getIngredients()[0]);
+                //Check if there is a recipe selected -> attempt insert ingredient.
+            } else if (this.currentRecipe != null) {
+                if (this.currentRecipe.getIngredients()[this.stage].isItemEqual(input)) {
+                    this.world.removeEntity(item);
+                    this.stage++;
+                    this.inventory.setStackInSlot(1, this.currentRecipe.getIngredients()[this.stage]);
+                }
+            }
         }
     }
 }

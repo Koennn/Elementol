@@ -1,5 +1,6 @@
 package me.koenn.elementol;
 
+import me.koenn.elementol.binding.BindingRecipeManager;
 import me.koenn.elementol.blocks.ModBlocks;
 import me.koenn.elementol.client.ElementolTab;
 import me.koenn.elementol.gui.GuiHandler;
@@ -52,6 +53,8 @@ public final class Elementol {
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
+
+        BindingRecipeManager.registerRecipes();
     }
 
     @Mod.EventHandler
