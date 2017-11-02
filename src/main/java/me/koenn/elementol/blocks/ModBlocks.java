@@ -1,8 +1,10 @@
 package me.koenn.elementol.blocks;
 
+import me.koenn.elementol.tileentities.TileEntityBindingStone;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public final class ModBlocks {
@@ -13,6 +15,8 @@ public final class ModBlocks {
         registry.registerAll(
                 binding_stone
         );
+
+        GameRegistry.registerTileEntity(TileEntityBindingStone.class, binding_stone.getRegistryName().toString());
     }
 
     public static void registerItemBlocks(IForgeRegistry<Item> registry) {
