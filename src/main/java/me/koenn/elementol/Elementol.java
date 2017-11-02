@@ -1,18 +1,25 @@
 package me.koenn.elementol;
 
-import me.koenn.elementol.blocks.TestBlock;
-import me.koenn.elementol.items.ItemElementGem;
-import me.koenn.elementol.items.TestItem;
+import me.koenn.elementol.blocks.ModBlocks;
+import me.koenn.elementol.client.ElementolTab;
+import me.koenn.elementol.gui.GuiHandler;
+import me.koenn.elementol.items.ModItems;
+import me.koenn.elementol.network.PacketRequestUpdateBindingStone;
+import me.koenn.elementol.network.PacketUpdateBindingStone;
+import me.koenn.elementol.proxy.CommonProxy;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
+import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import net.minecraftforge.fml.relauncher.Side;
 
 @Mod(
         modid = Elementol.MOD_ID,
@@ -25,82 +32,51 @@ public class Elementol {
     public static final String MOD_NAME = "Elementol";
     public static final String VERSION = "1.0-SNAPSHOT";
 
-    /**
-     * This is the instance of your mod as created by Forge. It will never be null.
-     */
+    public static final ElementolTab creativeTab = new ElementolTab();
     @Mod.Instance(MOD_ID)
-    public static Elementol INSTANCE;
+    public static Elementol instance;
+    @SidedProxy(serverSide = "me.koenn.elementol.proxy.CommonProxy", clientSide = "me.koenn.elementol.proxy.ClientProxy", modId = MOD_ID)
+    public static CommonProxy proxy;
+    public static SimpleNetworkWrapper network;
 
-    /**
-     * This is the first initialization event. Register tile entities here. The registry events below will have fired
-     * prior to entry to this method.
-     */
+    @SuppressWarnings("NewExpressionSideOnly")
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        proxy.registerRenderers();
 
+        network = NetworkRegistry.INSTANCE.newSimpleChannel(MOD_ID);
+        network.registerMessage(new PacketUpdateBindingStone.Handler(), PacketUpdateBindingStone.class, 0, Side.CLIENT);
+        network.registerMessage(new PacketRequestUpdateBindingStone.Handler(), PacketRequestUpdateBindingStone.class, 1, Side.SERVER);
     }
 
-    /**
-     * This is the second initialization event. Register custom recipes
-     */
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-
+        NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
     }
 
-    /**
-     * This is the final initialization event. Register actions from other mods here
-     */
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
 
     }
 
-    /**
-     * Forge will automatically look up and bind blocks to the fields in this class based on their registry name.
-     */
-    @GameRegistry.ObjectHolder(MOD_ID)
-    public static class Blocks {
+    @Mod.EventBusSubscriber
+    public static class RegistrationHandler {
 
-        public static final TestBlock test_block = null;
-    }
-
-    /**
-     * Forge will automatically look up and bind items to the fields in this class based on their registry name.
-     */
-    @GameRegistry.ObjectHolder(MOD_ID)
-    public static class Items {
-
-        public static final TestItem test_item = null;
-        public static final ItemElementGem fire_gem = null;
-        public static final ItemElementGem water_gem = null;
-        public static final ItemElementGem air_gem = null;
-        public static final ItemElementGem earth_gem = null;
-    }
-
-    /**
-     * This is a special class that listens to registry events, to allow creation of mod blocks and items at the proper
-     * time.
-     */
-    @Mod.EventBusSubscriber()
-    public static class ObjectRegistryHandler {
-
-        /**
-         * Listen for the register event for creating custom items
-         */
         @SubscribeEvent
-        @SuppressWarnings("ConstantConditions")
-        public static void addItems(RegistryEvent.Register<Item> event) {
-            event.getRegistry().register(new ItemBlock(Blocks.test_block).setRegistryName(MOD_ID, "test_block"));
-            event.getRegistry().register(new TestItem().setRegistryName(MOD_ID, "test_item"));
+        public static void registerItems(RegistryEvent.Register<Item> event) {
+            ModItems.register(event.getRegistry());
+            ModBlocks.registerItemBlocks(event.getRegistry());
         }
 
-        /**
-         * Listen for the register event for creating custom blocks
-         */
         @SubscribeEvent
-        public static void addBlocks(RegistryEvent.Register<Block> event) {
-            event.getRegistry().register(new TestBlock().setRegistryName(MOD_ID, "test_block"));
+        public static void registerBlocks(RegistryEvent.Register<Block> event) {
+            ModBlocks.register(event.getRegistry());
+        }
+
+        @SubscribeEvent
+        public static void registerItemModels(ModelRegistryEvent event) {
+            ModItems.registerModels();
+            ModBlocks.registerModels();
         }
     }
 }

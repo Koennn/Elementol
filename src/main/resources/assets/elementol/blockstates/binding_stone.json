@@ -1,0 +1,12 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "normal": {
+      "model": "elementol:binding_stone"
+    },
+    "inventory": {
+      "model": "elementol:binding_stone",
+      "transform": "forge:default-block"
+    }
+  }
+}
