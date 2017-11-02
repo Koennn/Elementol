@@ -26,7 +26,7 @@ import net.minecraftforge.fml.relauncher.Side;
         name = Elementol.MOD_NAME,
         version = Elementol.VERSION
 )
-public class Elementol {
+public final class Elementol {
 
     public static final String MOD_ID = "elementol";
     public static final String MOD_NAME = "Elementol";
