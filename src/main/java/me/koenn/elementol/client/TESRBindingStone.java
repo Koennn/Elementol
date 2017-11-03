@@ -16,7 +16,7 @@ public class TESRBindingStone extends TileEntitySpecialRenderer<TileEntityBindin
 
     @Override
     public void render(TileEntityBindingStone te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
-        ItemStack stack = te.inventory.getStackInSlot(0);
+        ItemStack stack = te.inventory.getStackInSlot(1);
         if (!stack.isEmpty()) {
             GlStateManager.enableRescaleNormal();
             GlStateManager.alphaFunc(GL11.GL_GREATER, 0.1f);

@@ -25,7 +25,7 @@ public class PacketUpdateBindingStone implements IMessage {
     }
 
     public PacketUpdateBindingStone(TileEntityBindingStone te) {
-        this(te.getPos(), te.inventory.getStackInSlot(0), te.lastChangeTime);
+        this(te.getPos(), te.inventory.getStackInSlot(1), te.lastChangeTime);
     }
 
     @SuppressWarnings("unused")
@@ -53,7 +53,7 @@ public class PacketUpdateBindingStone implements IMessage {
         public IMessage onMessage(PacketUpdateBindingStone message, MessageContext ctx) {
             Minecraft.getMinecraft().addScheduledTask(() -> {
                 TileEntityBindingStone te = (TileEntityBindingStone) Minecraft.getMinecraft().world.getTileEntity(message.pos);
-                te.inventory.setStackInSlot(0, message.stack);
+                te.inventory.setStackInSlot(1, message.stack);
                 te.lastChangeTime = message.lastChangeTime;
             });
             return null;

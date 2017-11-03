@@ -43,17 +43,25 @@ public final class Elementol {
     @SuppressWarnings("NewExpressionSideOnly")
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        event.getModLog().info("Woooooo, we're initializing!");
+
+        //Register item model renderers.
         proxy.registerRenderers();
 
+        //Register the network channel.
         network = NetworkRegistry.INSTANCE.newSimpleChannel(MOD_ID);
+
+        //Register the network messages (packets).
         network.registerMessage(new PacketUpdateBindingStone.Handler(), PacketUpdateBindingStone.class, 0, Side.CLIENT);
         network.registerMessage(new PacketRequestUpdateBindingStone.Handler(), PacketRequestUpdateBindingStone.class, 1, Side.SERVER);
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
+        //Register GuiHandler.
         NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
 
+        //Register binding recipes.
         BindingRecipeManager.registerRecipes();
     }
 

@@ -99,22 +99,31 @@ public class TileEntityBindingStone extends TileEntity implements ITickable {
             ItemStack input = item.getItem();
             ItemStack current = inventory.getStackInSlot(0);
 
-            //Check if it doesn't contain an item -> insert primary input.
-            if (current == null || current.getItem().equals(Items.AIR)) {
+            //Check if it doesn't contain an item and if the item is a valid input -> insert primary input.
+            if ((current == null || current.getItem().equals(Items.AIR)) && BindingRecipeManager.isInput(input)) {
                 this.world.removeEntity(item);
-                this.inventory.setStackInSlot(0, new ItemStack(ModItems.blank_gem));
+                this.inventory.setStackInSlot(1, new ItemStack(ModItems.blank_gem));
+                this.inventory.setStackInSlot(0, input);
                 //Check if there is no recipe selected and if the input is a valid identifier -> insert identifier.
             } else if (this.currentRecipe == null && BindingRecipeManager.isIdentifier(current, input)) {
                 this.world.removeEntity(item);
                 this.currentRecipe = BindingRecipeManager.getRecipe(current, input);
                 this.stage = 0;
-                this.inventory.setStackInSlot(1, this.currentRecipe.getIngredients()[0]);
+                this.inventory.setStackInSlot(1, this.currentRecipe.getIngredients()[this.stage]);
                 //Check if there is a recipe selected -> attempt insert ingredient.
-            } else if (this.currentRecipe != null) {
+            } else if (this.currentRecipe != null && this.stage < this.currentRecipe.getIngredients().length) {
                 if (this.currentRecipe.getIngredients()[this.stage].isItemEqual(input)) {
                     this.world.removeEntity(item);
-                    this.stage++;
                     this.inventory.setStackInSlot(1, this.currentRecipe.getIngredients()[this.stage]);
+                    this.stage++;
+                    //Check if the recipe is completed -> drop the output item.
+                    if (this.stage >= this.currentRecipe.getIngredients().length) {
+                        this.stage = 0;
+                        this.inventory.extractItem(0, 64, false);
+                        this.inventory.extractItem(1, 64, false);
+                        world.spawnEntity(new EntityItem(world, pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5, this.currentRecipe.getResult()));
+                        this.currentRecipe = null;
+                    }
                 }
             }
         }

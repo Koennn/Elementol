@@ -34,6 +34,15 @@ public final class BindingRecipeManager {
         return getRecipe(input, identifier) != null;
     }
 
+    public static boolean isInput(ItemStack input) {
+        for (BindingRecipe recipe : recipes) {
+            if (recipe.getInput().isItemEqual(input)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static BindingRecipe getById(int id) {
         for (BindingRecipe recipe : recipes) {
             if (recipe.getId() == id) {
@@ -47,6 +56,7 @@ public final class BindingRecipeManager {
         registerRecipe(new BindingRecipe(
                 new ItemStack(Items.ARROW),
                 new ItemStack(ModItems.earth_gem),
+                new ItemStack(Items.BAKED_POTATO),
                 new ItemStack(Items.APPLE), new ItemStack(Items.STICK)
         ));
     }
