@@ -1,0 +1,12 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "normal": {
+      "model": "elementol:pylon"
+    },
+    "inventory": {
+      "model": "elementol:pylon",
+      "transform": "forge:default-block"
+    }
+  }
+}

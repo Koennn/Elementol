@@ -1,43 +1,27 @@
 package me.koenn.elementol.tileentities;
 
-import me.koenn.elementol.Elementol;
 import me.koenn.elementol.binding.BindingRecipe;
 import me.koenn.elementol.binding.BindingRecipeManager;
 import me.koenn.elementol.items.ModItems;
-import me.koenn.elementol.network.PacketRequestUpdateBindingStone;
-import me.koenn.elementol.network.PacketUpdateBindingStone;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EntitySelectors;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.fml.common.network.NetworkRegistry;
-import net.minecraftforge.items.CapabilityItemHandler;
-import net.minecraftforge.items.ItemStackHandler;
 
-import javax.annotation.Nullable;
 import java.util.List;
 
-public class TileEntityBindingStone extends TileEntity implements ITickable {
+public class TileEntityBindingStone extends TileEntityInventory implements ITickable {
 
-    public long lastChangeTime;
     public int stage;
     public BindingRecipe currentRecipe;
-    public ItemStackHandler inventory = new ItemStackHandler(2) {
-        @Override
-        protected void onContentsChanged(int slot) {
-            if (!world.isRemote) {
-                lastChangeTime = world.getTotalWorldTime();
-                Elementol.network.sendToAllAround(new PacketUpdateBindingStone(TileEntityBindingStone.this), new NetworkRegistry.TargetPoint(world.provider.getDimension(), pos.getX(), pos.getY(), pos.getZ(), 64));
-            }
-        }
-    };
+
+    public TileEntityBindingStone() {
+        super(2);
+    }
 
     public static List<EntityItem> getCaptureItems(World worldIn, double x, double y, double z) {
         return worldIn.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(x - 0.5D, y, z - 0.5D, x + 0.5D, y + 1.5D, z + 0.5D), EntitySelectors.IS_ALIVE);
@@ -45,38 +29,20 @@ public class TileEntityBindingStone extends TileEntity implements ITickable {
 
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound compound) {
-        compound.setTag("inventory", inventory.serializeNBT());
-        compound.setLong("lastChangeTime", lastChangeTime);
         compound.setInteger("stage", stage);
-        compound.setInteger("currentRecipe", currentRecipe.getId());
+        if (currentRecipe != null) {
+            compound.setInteger("currentRecipe", currentRecipe.getId());
+        }
         return super.writeToNBT(compound);
     }
 
     @Override
     public void readFromNBT(NBTTagCompound compound) {
-        inventory.deserializeNBT(compound.getCompoundTag("inventory"));
-        lastChangeTime = compound.getLong("lastChangeTime");
         stage = compound.getInteger("stage");
-        currentRecipe = BindingRecipeManager.getById(compound.getInteger("currentRecipe"));
-        super.readFromNBT(compound);
-    }
-
-    @Override
-    public boolean hasCapability(Capability<?> capability, @Nullable EnumFacing facing) {
-        return capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY || super.hasCapability(capability, facing);
-    }
-
-    @Nullable
-    @Override
-    public <T> T getCapability(Capability<T> capability, @Nullable EnumFacing facing) {
-        return capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY ? (T) inventory : super.getCapability(capability, facing);
-    }
-
-    @Override
-    public void onLoad() {
-        if (world.isRemote) {
-            Elementol.network.sendToServer(new PacketRequestUpdateBindingStone(this));
+        if (compound.hasKey("currentRecipe")) {
+            currentRecipe = BindingRecipeManager.getById(compound.getInteger("currentRecipe"));
         }
+        super.readFromNBT(compound);
     }
 
     public EntityItem pullItem() {
@@ -102,7 +68,7 @@ public class TileEntityBindingStone extends TileEntity implements ITickable {
             //Check if it doesn't contain an item and if the item is a valid input -> insert primary input.
             if ((current == null || current.getItem().equals(Items.AIR)) && BindingRecipeManager.isInput(input)) {
                 this.world.removeEntity(item);
-                this.inventory.setStackInSlot(1, new ItemStack(ModItems.blank_gem));
+                this.inventory.setStackInSlot(1, new ItemStack(ModItems.BLANK_GEM));
                 this.inventory.setStackInSlot(0, input);
                 //Check if there is no recipe selected and if the input is a valid identifier -> insert identifier.
             } else if (this.currentRecipe == null && BindingRecipeManager.isIdentifier(current, input)) {
@@ -114,7 +80,6 @@ public class TileEntityBindingStone extends TileEntity implements ITickable {
             } else if (this.currentRecipe != null && this.stage < this.currentRecipe.getIngredients().length) {
                 if (this.currentRecipe.getIngredients()[this.stage].isItemEqual(input)) {
                     this.world.removeEntity(item);
-                    this.inventory.setStackInSlot(1, this.currentRecipe.getIngredients()[this.stage]);
                     this.stage++;
                     //Check if the recipe is completed -> drop the output item.
                     if (this.stage >= this.currentRecipe.getIngredients().length) {
@@ -123,6 +88,8 @@ public class TileEntityBindingStone extends TileEntity implements ITickable {
                         this.inventory.extractItem(1, 64, false);
                         world.spawnEntity(new EntityItem(world, pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5, this.currentRecipe.getResult()));
                         this.currentRecipe = null;
+                    } else {
+                        this.inventory.setStackInSlot(1, this.currentRecipe.getIngredients()[this.stage]);
                     }
                 }
             }

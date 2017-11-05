@@ -55,7 +55,7 @@ public final class BindingRecipeManager {
     public static void registerRecipes() {
         registerRecipe(new BindingRecipe(
                 new ItemStack(Items.ARROW),
-                new ItemStack(ModItems.earth_gem),
+                new ItemStack(ModItems.EARTH_GEM),
                 new ItemStack(Items.BAKED_POTATO),
                 new ItemStack(Items.APPLE), new ItemStack(Items.STICK)
         ));

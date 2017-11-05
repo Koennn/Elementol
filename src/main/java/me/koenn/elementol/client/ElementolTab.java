@@ -13,6 +13,6 @@ public class ElementolTab extends CreativeTabs {
 
     @Override
     public ItemStack getTabIconItem() {
-        return new ItemStack(ModItems.blank_gem);
+        return new ItemStack(ModItems.BLANK_GEM);
     }
 }

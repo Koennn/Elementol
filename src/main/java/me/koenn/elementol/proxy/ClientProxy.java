@@ -2,7 +2,9 @@ package me.koenn.elementol.proxy;
 
 import me.koenn.elementol.Elementol;
 import me.koenn.elementol.client.TESRBindingStone;
+import me.koenn.elementol.client.TESRPylon;
 import me.koenn.elementol.tileentities.TileEntityBindingStone;
+import me.koenn.elementol.tileentities.TileEntityPylon;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.Item;
@@ -28,5 +30,6 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void registerRenderers() {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBindingStone.class, new TESRBindingStone());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPylon.class, new TESRPylon());
     }
 }

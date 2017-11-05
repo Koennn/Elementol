@@ -5,8 +5,8 @@ import me.koenn.elementol.blocks.ModBlocks;
 import me.koenn.elementol.client.ElementolTab;
 import me.koenn.elementol.gui.GuiHandler;
 import me.koenn.elementol.items.ModItems;
-import me.koenn.elementol.network.PacketRequestUpdateBindingStone;
-import me.koenn.elementol.network.PacketUpdateBindingStone;
+import me.koenn.elementol.network.PacketRequestUpdateInventory;
+import me.koenn.elementol.network.PacketUpdateInventory;
 import me.koenn.elementol.proxy.CommonProxy;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -32,15 +32,16 @@ public final class Elementol {
     public static final String MOD_ID = "elementol";
     public static final String MOD_NAME = "Elementol";
     public static final String VERSION = "1.0-SNAPSHOT";
+    public static final ElementolTab ELEMENTOL_TAB = new ElementolTab();
 
-    public static final ElementolTab creativeTab = new ElementolTab();
     @Mod.Instance(MOD_ID)
     public static Elementol instance;
+
     @SidedProxy(serverSide = "me.koenn.elementol.proxy.CommonProxy", clientSide = "me.koenn.elementol.proxy.ClientProxy", modId = MOD_ID)
     public static CommonProxy proxy;
-    public static SimpleNetworkWrapper network;
 
-    @SuppressWarnings("NewExpressionSideOnly")
+    public static SimpleNetworkWrapper networkWrapper;
+
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         event.getModLog().info("Woooooo, we're initializing!");
@@ -48,12 +49,12 @@ public final class Elementol {
         //Register item model renderers.
         proxy.registerRenderers();
 
-        //Register the network channel.
-        network = NetworkRegistry.INSTANCE.newSimpleChannel(MOD_ID);
+        //Register the networkWrapper channel.
+        networkWrapper = NetworkRegistry.INSTANCE.newSimpleChannel(MOD_ID);
 
-        //Register the network messages (packets).
-        network.registerMessage(new PacketUpdateBindingStone.Handler(), PacketUpdateBindingStone.class, 0, Side.CLIENT);
-        network.registerMessage(new PacketRequestUpdateBindingStone.Handler(), PacketRequestUpdateBindingStone.class, 1, Side.SERVER);
+        //Register the networkWrapper messages (packets).
+        networkWrapper.registerMessage(new PacketUpdateInventory.Handler(), PacketUpdateInventory.class, 0, Side.CLIENT);
+        networkWrapper.registerMessage(new PacketRequestUpdateInventory.Handler(), PacketRequestUpdateInventory.class, 1, Side.SERVER);
     }
 
     @Mod.EventHandler
@@ -81,7 +82,8 @@ public final class Elementol {
 
         @SubscribeEvent
         public static void registerBlocks(RegistryEvent.Register<Block> event) {
-            ModBlocks.register(event.getRegistry());
+            ModBlocks.registerBlocks(event.getRegistry());
+            ModBlocks.registerTileEntities();
         }
 
         @SubscribeEvent

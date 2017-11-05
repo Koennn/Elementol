@@ -5,23 +5,21 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 public final class ModItems {
 
-    public static final ItemBase blank_gem = new ItemBase("blank_gem");
-    public static final ItemBase fire_gem = new ItemBase("fire_gem");
-    public static final ItemBase water_gem = new ItemBase("water_gem");
-    public static final ItemBase air_gem = new ItemBase("air_gem");
-    public static final ItemBase earth_gem = new ItemBase("earth_gem");
+    public static final ItemBase BLANK_GEM = new ItemBase("blank_gem");
+    public static final ItemBase FIRE_GEM = new ItemBase("fire_gem");
+    public static final ItemBase WATER_GEM = new ItemBase("water_gem");
+    public static final ItemBase AIR_GEM = new ItemBase("air_gem");
+    public static final ItemBase EARTH_GEM = new ItemBase("earth_gem");
+
+    public static final ItemBase[] ALL_ITEMS = new ItemBase[]{BLANK_GEM, FIRE_GEM, WATER_GEM, AIR_GEM, EARTH_GEM};
 
     public static void register(IForgeRegistry<Item> registry) {
-        registry.registerAll(
-                blank_gem, fire_gem, water_gem, air_gem, earth_gem
-        );
+        registry.registerAll(ALL_ITEMS);
     }
 
     public static void registerModels() {
-        blank_gem.registerItemModel();
-        fire_gem.registerItemModel();
-        water_gem.registerItemModel();
-        air_gem.registerItemModel();
-        earth_gem.registerItemModel();
+        for (ItemBase item : ALL_ITEMS) {
+            item.registerItemModel();
+        }
     }
 }

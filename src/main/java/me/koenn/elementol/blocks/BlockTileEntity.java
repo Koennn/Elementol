@@ -15,6 +15,10 @@ public abstract class BlockTileEntity<TE extends TileEntity> extends BlockBase {
         super(material, name, aabb, hardness, resistance, soundType);
     }
 
+    public BlockTileEntity(Material material, String name, float hardness, float resistance, SoundType soundType) {
+        super(material, name, hardness, resistance, soundType);
+    }
+
     public TE getTileEntity(IBlockAccess world, BlockPos pos) {
         return (TE) world.getTileEntity(pos);
     }

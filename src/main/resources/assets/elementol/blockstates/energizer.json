@@ -1,0 +1,12 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "normal": {
+      "model": "elementol:energizer"
+    },
+    "inventory": {
+      "model": "elementol:energizer",
+      "transform": "forge:default-block"
+    }
+  }
+}

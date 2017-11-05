@@ -12,9 +12,9 @@ public class BlockBindingStone extends BlockTileEntity<TileEntityBindingStone> {
 
     private static final AxisAlignedBB AABB = new AxisAlignedBB(-0.06D, 0.0D, -0.06D, 1.063D, 0.60D, 1.06D);
 
-    public BlockBindingStone() {
-        super(Material.ROCK, "binding_stone", AABB, 2F, 10F, SoundType.STONE);
-        this.setCreativeTab(Elementol.creativeTab);
+    public BlockBindingStone(String name) {
+        super(Material.ROCK, name, AABB, 2F, 10F, SoundType.STONE);
+        this.setCreativeTab(Elementol.ELEMENTOL_TAB);
         this.setFullCube(false);
     }
 

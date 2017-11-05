@@ -11,7 +11,7 @@ public class ItemBase extends Item {
         this.name = name;
         setUnlocalizedName(name);
         setRegistryName(name);
-        this.setCreativeTab(Elementol.creativeTab);
+        this.setCreativeTab(Elementol.ELEMENTOL_TAB);
     }
 
     public void registerItemModel() {
