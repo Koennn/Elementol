@@ -5,6 +5,7 @@ import me.koenn.elementol.blocks.ModBlocks;
 import me.koenn.elementol.client.ElementolTab;
 import me.koenn.elementol.gui.GuiHandler;
 import me.koenn.elementol.items.ModItems;
+import me.koenn.elementol.network.PacketEnergizerParticle;
 import me.koenn.elementol.network.PacketRequestUpdateInventory;
 import me.koenn.elementol.network.PacketUpdateInventory;
 import me.koenn.elementol.proxy.CommonProxy;
@@ -55,6 +56,7 @@ public final class Elementol {
         //Register the networkWrapper messages (packets).
         networkWrapper.registerMessage(new PacketUpdateInventory.Handler(), PacketUpdateInventory.class, 0, Side.CLIENT);
         networkWrapper.registerMessage(new PacketRequestUpdateInventory.Handler(), PacketRequestUpdateInventory.class, 1, Side.SERVER);
+        networkWrapper.registerMessage(new PacketEnergizerParticle.Handler(), PacketEnergizerParticle.class, 2, Side.CLIENT);
     }
 
     @Mod.EventHandler

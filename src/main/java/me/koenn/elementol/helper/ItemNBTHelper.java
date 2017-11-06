@@ -19,4 +19,8 @@ public final class ItemNBTHelper {
     public static int getInt(ItemStack stack, String tag, int defaultExpected) {
         return hasTag(stack, tag) ? getNBT(stack).getInteger(tag) : defaultExpected;
     }
+
+    public static boolean getBoolean(ItemStack stack, String tag, boolean defaultExpected) {
+        return hasTag(stack, tag) ? getNBT(stack).getBoolean(tag) : defaultExpected;
+    }
 }

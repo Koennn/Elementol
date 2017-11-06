@@ -6,10 +6,10 @@ import net.minecraftforge.registries.IForgeRegistry;
 public final class ModItems {
 
     public static final ItemBase BLANK_GEM = new ItemBase("blank_gem");
-    public static final ItemBase FIRE_GEM = new ItemBase("fire_gem");
-    public static final ItemBase WATER_GEM = new ItemBase("water_gem");
-    public static final ItemBase AIR_GEM = new ItemBase("air_gem");
-    public static final ItemBase EARTH_GEM = new ItemBase("earth_gem");
+    public static final ItemBase FIRE_GEM = new ItemElementalGem("fire_gem");
+    public static final ItemBase WATER_GEM = new ItemElementalGem("water_gem");
+    public static final ItemBase AIR_GEM = new ItemElementalGem("air_gem");
+    public static final ItemBase EARTH_GEM = new ItemElementalGem("earth_gem");
     public static final ItemBase FIRE_CRYSTAL = new ItemElementalCrystal("fire_crystal");
     public static final ItemBase WATER_CRYSTAL = new ItemElementalCrystal("water_crystal");
     public static final ItemBase AIR_CRYSTAL = new ItemElementalCrystal("air_crystal");

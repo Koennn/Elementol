@@ -1,7 +1,22 @@
+# Misc
 itemGroup.elementol=Elementol
 
+# Items
 item.blank_gem.name=Blank Gem
 item.fire_gem.name=Fire Gem
 item.water_gem.name=Water Gem
 item.air_gem.name=Air Gem
 item.earth_gem.name=Earth Gem
+item.fire_gem.energized.name=Energized Fire Gem
+item.water_gem.energized.name=Energized Water Gem
+item.air_gem.energized.name=Energized Air Gem
+item.earth_gem.energized.name=Energized Earth Gem
+item.fire_crystal.name=Fire Crystal
+item.water_crystal.name=Water Crystal
+item.air_crystal.name=Air Crystal
+item.earth_crystal.name=Earth Crystal
+
+# Blocks
+tile.binding_stone.name=Binding Stone
+tile.pylon.name=Pylon
+tile.energizer.name=Energizer

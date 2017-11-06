@@ -97,6 +97,5 @@ public class PacketUpdateInventory implements IMessage {
             //Don't send a return packet.
             return null;
         }
-
     }
 }

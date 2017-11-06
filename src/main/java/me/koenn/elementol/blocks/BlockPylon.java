@@ -2,6 +2,7 @@ package me.koenn.elementol.blocks;
 
 import me.koenn.elementol.Elementol;
 import me.koenn.elementol.items.ItemElementalCrystal;
+import me.koenn.elementol.tileentities.TileEntityEnergizer;
 import me.koenn.elementol.tileentities.TileEntityPylon;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -11,7 +12,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -30,13 +33,20 @@ public class BlockPylon extends BlockTileEntity<TileEntityPylon> {
     }
 
     @Override
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+        return new AxisAlignedBB(0.34, 0, 0.34, 0.66, 1.3, 0.66);
+    }
+
+    @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!worldIn.isRemote) {
             TileEntityPylon tile = getTileEntity(worldIn, pos);
             IItemHandler itemHandler = tile.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.UP);
             if (!playerIn.isSneaking()) {
                 if (playerIn.getHeldItem(hand).isEmpty()) {
-                    playerIn.setHeldItem(hand, itemHandler.extractItem(0, 64, false));
+                    if (!this.isEnergizing(worldIn, pos)) {
+                        playerIn.setHeldItem(hand, itemHandler.extractItem(0, 64, false));
+                    }
                 } else if (playerIn.getHeldItem(hand).getItem() instanceof ItemElementalCrystal) {
                     playerIn.setHeldItem(hand, itemHandler.insertItem(0, playerIn.getHeldItem(hand), false));
                 } else {
@@ -48,6 +58,11 @@ public class BlockPylon extends BlockTileEntity<TileEntityPylon> {
             }
         }
         return true;
+    }
+
+    private boolean isEnergizing(World worldIn, BlockPos pos) {
+        BlockPos energizerPos = new BlockPos(pos).add(0, -1, 0);
+        return worldIn.getBlockState(energizerPos).getBlock().equals(ModBlocks.ENERGIZER) && ((TileEntityEnergizer) worldIn.getTileEntity(energizerPos)).isEnergizing();
     }
 
     @Override

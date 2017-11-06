@@ -1,6 +1,7 @@
 package me.koenn.elementol.blocks;
 
 import me.koenn.elementol.tileentities.TileEntityBindingStone;
+import me.koenn.elementol.tileentities.TileEntityEnergizer;
 import me.koenn.elementol.tileentities.TileEntityPylon;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -23,6 +24,7 @@ public final class ModBlocks {
     public static void registerTileEntities() {
         GameRegistry.registerTileEntity(TileEntityBindingStone.class, BINDING_STONE.getRegistryName().toString());
         GameRegistry.registerTileEntity(TileEntityPylon.class, PYLON.getRegistryName().toString());
+        GameRegistry.registerTileEntity(TileEntityEnergizer.class, ENERGIZER.getRegistryName().toString());
     }
 
     public static void registerItemBlocks(IForgeRegistry<Item> registry) {
