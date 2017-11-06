@@ -12,11 +12,15 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class TileEntityInventory extends TileEntity {
 
     public long lastChangeTime;
     public ItemStackHandler inventory;
+    public List<EnumFacing> inventoryFaces = new ArrayList<>();
 
     public TileEntityInventory(int size) {
         //Create the inventory with the given size.
@@ -39,6 +43,10 @@ public class TileEntityInventory extends TileEntity {
         };
     }
 
+    public void setInventoryFace(EnumFacing... faces) {
+        Collections.addAll(this.inventoryFaces, faces);
+    }
+
     @Override
     public void onLoad() {
         //Check whether we're running on the client.
@@ -51,13 +59,13 @@ public class TileEntityInventory extends TileEntity {
 
     @Override
     public boolean hasCapability(Capability<?> capability, @Nullable EnumFacing facing) {
-        return capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY || super.hasCapability(capability, facing);
+        return (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY && this.inventoryFaces.contains(facing)) || super.hasCapability(capability, facing);
     }
 
     @Nullable
     @Override
     public <T> T getCapability(Capability<T> capability, @Nullable EnumFacing facing) {
-        return capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY ? (T) this.inventory : super.getCapability(capability, facing);
+        return capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY ? (this.inventoryFaces.contains(facing) ? (T) this.inventory : null) : super.getCapability(capability, facing);
     }
 
     @Override

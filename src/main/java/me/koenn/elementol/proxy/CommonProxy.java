@@ -9,10 +9,7 @@ public class CommonProxy {
 
     }
 
-    public void loadElementalGuide() {
-
-    }
-
+    @SuppressWarnings("deprecation")
     public String localize(String unlocalized, Object... args) {
         return I18n.translateToLocalFormatted(unlocalized, args);
     }
