@@ -2,6 +2,7 @@ package me.koenn.elementol.client.tesr;
 
 import me.koenn.elementol.client.model.ModelConnector;
 import me.koenn.elementol.client.model.ModelPlate;
+import me.koenn.elementol.items.ItemElementalGem;
 import me.koenn.elementol.tileentities.TileEntityEnergizer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
@@ -36,19 +37,21 @@ public class TESREnergizer extends TileEntitySpecialRenderer<TileEntityEnergizer
 
             this.model.render(null, 0, 0, 0, 0, 0, 1.0F);
 
-            this.modelPlate.render(null, 0, 0, 0, 0, 0, 1.0F);
+            if (te.inventory.getStackInSlot(0) != null && te.inventory.getStackInSlot(0).getItem() instanceof ItemElementalGem) {
+                this.modelPlate.render(null, 0, 0, 0, 0, 0, 1.0F);
 
-            GlStateManager.rotate(90, 0, 1, 0);
-            GlStateManager.translate(-16, 0, 0);
-            this.modelPlate.render(null, 0, 0, 0, 0, 0, 1.0F);
+                GlStateManager.rotate(90, 0, 1, 0);
+                GlStateManager.translate(-16, 0, 0);
+                this.modelPlate.render(null, 0, 0, 0, 0, 0, 1.0F);
 
-            GlStateManager.rotate(90, 0, 1, 0);
-            GlStateManager.translate(-16, 0, 0);
-            this.modelPlate.render(null, 0, 0, 0, 0, 0, 1.0F);
+                GlStateManager.rotate(90, 0, 1, 0);
+                GlStateManager.translate(-16, 0, 0);
+                this.modelPlate.render(null, 0, 0, 0, 0, 0, 1.0F);
 
-            GlStateManager.rotate(90, 0, 1, 0);
-            GlStateManager.translate(-16, 0, 0);
-            this.modelPlate.render(null, 0, 0, 0, 0, 0, 1.0F);
+                GlStateManager.rotate(90, 0, 1, 0);
+                GlStateManager.translate(-16, 0, 0);
+                this.modelPlate.render(null, 0, 0, 0, 0, 0, 1.0F);
+            }
 
             GlStateManager.popMatrix();
         }
