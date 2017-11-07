@@ -1,226 +1,151 @@
-[10:41:19] [main/INFO]: username: koenwillemse1@gmail.com
-[10:41:19] [main/INFO]: Extra: []
-[10:41:19] [main/INFO]: Password found, attempting login
-[10:41:19] [main/INFO]: Logging in with username & password
-[10:41:20] [main/INFO]: Login Succesful!
-[10:41:20] [main/INFO]: Running with arguments: [--userProperties, [], --assetsDir, C:/Users/Koen/.gradle/caches/minecraft/assets, --assetIndex, 1.12, --userType, mojang, --accessToken{REDACTED}, --version, 1.12, --uuid, cac04f5f726f4192829024bdd9e7c9aa, --username, Koenn, --tweakClass, net.minecraftforge.fml.common.launcher.FMLTweaker, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
-[10:41:20] [main/INFO]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
-[10:41:20] [main/INFO]: Using primary tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
-[10:41:20] [main/INFO]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
-[10:41:20] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLTweaker
-[10:41:20] [main/INFO]: Forge Mod Loader version 14.21.1.2443 for Minecraft 1.12 loading
-[10:41:20] [main/INFO]: Java is Java HotSpot(TM) 64-Bit Server VM, version 1.8.0_101, running on Windows 10:amd64:10.0, installed at C:\Program Files\Java\jdk1.8.0_101\jre
-[10:41:20] [main/INFO]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
-[10:41:20] [main/INFO]: Ignoring missing certificate for coremod FMLCorePlugin (net.minecraftforge.fml.relauncher.FMLCorePlugin), we are in deobf and it's a forge core plugin
-[10:41:20] [main/INFO]: Ignoring missing certificate for coremod FMLForgePlugin (net.minecraftforge.classloading.FMLForgePlugin), we are in deobf and it's a forge core plugin
-[10:41:20] [main/INFO]: Calling tweak class net.minecraftforge.gradle.tweakers.CoremodTweaker
-[10:41:20] [main/INFO]: Injecting location in coremod net.minecraftforge.fml.relauncher.FMLCorePlugin
-[10:41:20] [main/INFO]: Injecting location in coremod net.minecraftforge.classloading.FMLForgePlugin
-[10:41:20] [main/INFO]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
-[10:41:20] [main/INFO]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
-[10:41:20] [main/INFO]: Loading tweak class name net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
-[10:41:20] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
-[10:41:20] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
-[10:41:20] [main/INFO]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
-[10:41:23] [main/ERROR]: FML appears to be missing any signature data. This is not a good thing
-[10:41:23] [main/INFO]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
-[10:41:23] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
-[10:41:24] [main/INFO]: Calling tweak class net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
-[10:41:24] [main/INFO]: Loading tweak class name net.minecraftforge.fml.common.launcher.TerminalTweaker
-[10:41:24] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.TerminalTweaker
-[10:41:24] [main/INFO]: Launching wrapped minecraft {net.minecraft.client.main.Main}
-[10:41:25] [main/INFO]: Setting user: Koenn
-[10:41:31] [main/WARN]: Skipping bad option: lastServer:
-[10:41:31] [main/INFO]: LWJGL Version: 2.9.4
-[10:41:33] [main/INFO]: -- System Details --
+[08:11:39] [main/INFO]: Running with arguments: [--userProperties, {}, --assetsDir, C:/Users/Koen/.gradle/caches/minecraft/assets, --assetIndex, 1.12, --accessToken{REDACTED}, --version, 1.12, --tweakClass, net.minecraftforge.fml.common.launcher.FMLTweaker, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
+[08:11:39] [main/INFO]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
+[08:11:39] [main/INFO]: Using primary tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
+[08:11:39] [main/INFO]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[08:11:39] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLTweaker
+[08:11:39] [main/INFO]: Forge Mod Loader version 14.21.1.2443 for Minecraft 1.12 loading
+[08:11:39] [main/INFO]: Java is Java HotSpot(TM) 64-Bit Server VM, version 1.8.0_101, running on Windows 10:amd64:10.0, installed at C:\Program Files\Java\jdk1.8.0_101\jre
+[08:11:40] [main/INFO]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
+[08:11:40] [main/INFO]: Ignoring missing certificate for coremod FMLCorePlugin (net.minecraftforge.fml.relauncher.FMLCorePlugin), we are in deobf and it's a forge core plugin
+[08:11:40] [main/INFO]: Ignoring missing certificate for coremod FMLForgePlugin (net.minecraftforge.classloading.FMLForgePlugin), we are in deobf and it's a forge core plugin
+[08:11:40] [main/INFO]: Calling tweak class net.minecraftforge.gradle.tweakers.CoremodTweaker
+[08:11:40] [main/INFO]: Injecting location in coremod net.minecraftforge.fml.relauncher.FMLCorePlugin
+[08:11:40] [main/INFO]: Injecting location in coremod net.minecraftforge.classloading.FMLForgePlugin
+[08:11:40] [main/INFO]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[08:11:40] [main/INFO]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[08:11:40] [main/INFO]: Loading tweak class name net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[08:11:40] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[08:11:40] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[08:11:40] [main/INFO]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[08:11:43] [main/ERROR]: FML appears to be missing any signature data. This is not a good thing
+[08:11:43] [main/INFO]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[08:11:43] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[08:11:44] [main/INFO]: Calling tweak class net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[08:11:44] [main/INFO]: Loading tweak class name net.minecraftforge.fml.common.launcher.TerminalTweaker
+[08:11:44] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.TerminalTweaker
+[08:11:44] [main/INFO]: Launching wrapped minecraft {net.minecraft.client.main.Main}
+[08:11:45] [main/INFO]: Setting user: Player398
+[08:11:53] [main/WARN]: Skipping bad option: lastServer:
+[08:11:53] [main/INFO]: LWJGL Version: 2.9.4
+[08:11:56] [main/INFO]: -- System Details --
 Details:
 	Minecraft Version: 1.12
 	Operating System: Windows 10 (amd64) version 10.0
 	Java Version: 1.8.0_101, Oracle Corporation
 	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
-	Memory: 233333576 bytes (222 MB) / 698351616 bytes (666 MB) up to 3810525184 bytes (3634 MB)
+	Memory: 214824368 bytes (204 MB) / 863502336 bytes (823 MB) up to 3810525184 bytes (3634 MB)
 	JVM Flags: 0 total; 
 	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
 	FML: 
 	Loaded coremods (and transformers): 
 	GL info: ' Vendor: 'NVIDIA Corporation' Version: '4.5.0 NVIDIA 385.41' Renderer: 'GeForce GTX 750 Ti/PCIe/SSE2'
-[10:41:33] [main/INFO]: MinecraftForge v14.21.1.2443 Initialized
-[10:41:33] [main/INFO]: Replaced 921 ore ingredients
-[10:41:34] [main/INFO]: Found 0 mods from the command line. Injecting into mod discoverer
-[10:41:34] [main/INFO]: Searching G:\Random Projects\Elementol\run\mods for mods
-[10:41:36] [main/INFO]: Forge Mod Loader has identified 5 mods to load
-[10:41:36] [Thread-3/INFO]: Using sync timing. 200 frames of Display.update took 153392651 nanos
-[10:41:36] [main/INFO]: Attempting connection with missing mods [minecraft, mcp, FML, forge, elementol] at CLIENT
-[10:41:36] [main/INFO]: Attempting connection with missing mods [minecraft, mcp, FML, forge, elementol] at SERVER
-[10:41:37] [main/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Elementol
-[10:41:37] [main/INFO]: Processing ObjectHolder annotations
-[10:41:37] [main/INFO]: Found 1168 ObjectHolder annotations
-[10:41:37] [main/INFO]: Identifying ItemStackHolder annotations
-[10:41:37] [main/INFO]: Found 0 ItemStackHolder annotations
-[10:41:38] [main/INFO]: Configured a dormant chunk cache size of 0
-[10:41:38] [Forge Version Check/INFO]: [forge] Starting version check at http://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json
-[10:41:38] [main/INFO]: Applying holder lookups
-[10:41:38] [main/INFO]: Holder lookups applied
-[10:41:38] [main/INFO]: Applying holder lookups
-[10:41:38] [main/INFO]: Holder lookups applied
-[10:41:38] [main/INFO]: Applying holder lookups
-[10:41:38] [main/INFO]: Holder lookups applied
-[10:41:38] [Forge Version Check/INFO]: [forge] Found status: AHEAD Target: null
-[10:41:38] [main/INFO]: Applying holder lookups
-[10:41:38] [main/INFO]: Holder lookups applied
-[10:41:38] [main/INFO]: Injecting itemstacks
-[10:41:38] [main/INFO]: Itemstack injection complete
-[10:41:44] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[10:41:44] [Thread-5/INFO]: Initializing LWJGL OpenAL
-[10:41:44] [Thread-5/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[10:41:44] [Thread-5/INFO]: OpenAL initialized.
-[10:41:45] [Sound Library Loader/INFO]: Sound engine started
-[10:41:53] [main/INFO]: Max texture size: 16384
-[10:41:53] [main/INFO]: Created: 512x512 textures-atlas
-[10:41:56] [main/INFO]: Applying holder lookups
-[10:41:56] [main/INFO]: Holder lookups applied
-[10:41:56] [main/INFO]: Injecting itemstacks
-[10:41:56] [main/INFO]: Itemstack injection complete
-[10:41:56] [main/INFO]: Forge Mod Loader has successfully loaded 5 mods
-[10:41:56] [main/WARN]: Skipping bad option: lastServer:
-[10:41:56] [main/INFO]: Narrator library for x64 successfully loaded
-[10:42:03] [Server thread/INFO]: Starting integrated minecraft server version 1.12
-[10:42:03] [Server thread/INFO]: Generating keypair
-[10:42:03] [Server thread/INFO]: Injecting existing registry data into this server instance
-[10:42:03] [Server thread/INFO]: Registry Block: Found a missing id from the world elementol:myspecialblock
-[10:42:03] [Server thread/INFO]: Registry Block: Found a missing id from the world elementol:test_block
-[10:42:03] [Server thread/INFO]: Applying holder lookups
-[10:42:03] [Server thread/INFO]: Holder lookups applied
-[10:42:03] [Server thread/INFO]: Loading dimension 0 (Test World) (net.minecraft.server.integrated.IntegratedServer@1a06f687)
-[10:42:04] [Server thread/INFO]: Loaded 488 advancements
-[10:42:04] [Server thread/INFO]: Loading dimension 1 (Test World) (net.minecraft.server.integrated.IntegratedServer@1a06f687)
-[10:42:04] [Server thread/INFO]: Loading dimension -1 (Test World) (net.minecraft.server.integrated.IntegratedServer@1a06f687)
-[10:42:04] [Server thread/INFO]: Preparing start region for level 0
-[10:42:05] [Server thread/INFO]: Changing view distance to 8, from 10
-[10:42:07] [Netty Local Client IO #0/INFO]: Server protocol version 2
-[10:42:07] [Netty Server IO #1/INFO]: Client protocol version 2
-[10:42:07] [Netty Server IO #1/INFO]: Client attempting to join with 5 mods : minecraft@1.12,FML@8.0.99.99,forge@14.21.1.2443,mcp@9.19,elementol@1.0-SNAPSHOT
-[10:42:07] [Netty Local Client IO #0/INFO]: [Netty Local Client IO #0] Client side modded connection established
-[10:42:07] [Server thread/INFO]: [Server thread] Server side modded connection established
-[10:42:07] [Server thread/INFO]: Koenn[local:E:56162880] logged in with entity id 0 at (-785.8216216307052, 56.0, 1902.069623219836)
-[10:42:07] [Server thread/INFO]: Koenn joined the game
-[10:42:08] [Server thread/INFO]: Saving and pausing game...
-[10:42:08] [Server thread/INFO]: Saving chunks for level 'Test World'/overworld
-[10:42:08] [Server thread/INFO]: Saving chunks for level 'Test World'/the_nether
-[10:42:08] [Server thread/INFO]: Saving chunks for level 'Test World'/the_end
-[10:42:09] [main/INFO]: Loaded 4 advancements
-[10:42:15] [Server thread/INFO]: Saving and pausing game...
-[10:42:15] [Server thread/INFO]: Saving chunks for level 'Test World'/overworld
-[10:42:15] [Server thread/INFO]: Saving chunks for level 'Test World'/the_nether
-[10:42:15] [Server thread/INFO]: Saving chunks for level 'Test World'/the_end
-[10:42:16] [Server thread/INFO]: Saving and pausing game...
-[10:42:16] [Server thread/INFO]: Saving chunks for level 'Test World'/overworld
-[10:42:17] [Server thread/INFO]: Saving chunks for level 'Test World'/the_nether
-[10:42:17] [Server thread/INFO]: Saving chunks for level 'Test World'/the_end
-[10:42:17] [Server thread/INFO]: Stopping server
-[10:42:17] [Server thread/INFO]: Saving players
-[10:42:17] [Server thread/INFO]: Koenn lost connection: Disconnected
-[10:42:17] [Server thread/INFO]: Koenn left the game
-[10:42:17] [Server thread/INFO]: Stopping singleplayer server as player logged out
-[10:42:17] [Server thread/INFO]: Saving worlds
-[10:42:17] [Server thread/INFO]: Saving chunks for level 'Test World'/overworld
-[10:42:17] [Server thread/INFO]: Saving chunks for level 'Test World'/the_nether
-[10:42:17] [Server thread/INFO]: Saving chunks for level 'Test World'/the_end
-[10:42:17] [Server thread/INFO]: Unloading dimension 0
-[10:42:17] [Server thread/INFO]: Unloading dimension -1
-[10:42:17] [Server thread/INFO]: Unloading dimension 1
-[10:42:18] [Server thread/INFO]: Applying holder lookups
-[10:42:18] [Server thread/INFO]: Holder lookups applied
-[10:42:20] [Server thread/INFO]: Starting integrated minecraft server version 1.12
-[10:42:20] [Server thread/INFO]: Generating keypair
-[10:42:20] [Server thread/INFO]: Injecting existing registry data into this server instance
-[10:42:20] [Server thread/INFO]: Registry Block: Found a missing id from the world elementol:myspecialblock
-[10:42:20] [Server thread/INFO]: Registry Block: Found a missing id from the world elementol:test_block
-[10:42:20] [Server thread/INFO]: Applying holder lookups
-[10:42:20] [Server thread/INFO]: Holder lookups applied
-[10:42:20] [Server thread/INFO]: Loading dimension 0 (Test World) (net.minecraft.server.integrated.IntegratedServer@14409bb0)
-[10:42:20] [Server thread/INFO]: Loaded 488 advancements
-[10:42:20] [Server thread/INFO]: Loading dimension 1 (Test World) (net.minecraft.server.integrated.IntegratedServer@14409bb0)
-[10:42:20] [Server thread/INFO]: Loading dimension -1 (Test World) (net.minecraft.server.integrated.IntegratedServer@14409bb0)
-[10:42:20] [Server thread/INFO]: Preparing start region for level 0
-[10:42:21] [Server thread/INFO]: Changing view distance to 8, from 10
-[10:42:21] [Netty Local Client IO #1/INFO]: Server protocol version 2
-[10:42:21] [Netty Server IO #3/INFO]: Client protocol version 2
-[10:42:21] [Netty Server IO #3/INFO]: Client attempting to join with 5 mods : minecraft@1.12,FML@8.0.99.99,forge@14.21.1.2443,mcp@9.19,elementol@1.0-SNAPSHOT
-[10:42:21] [Netty Local Client IO #1/INFO]: [Netty Local Client IO #1] Client side modded connection established
-[10:42:21] [Server thread/INFO]: [Server thread] Server side modded connection established
-[10:42:21] [Server thread/INFO]: Koenn[local:E:6fa3a6dc] logged in with entity id 7935 at (-785.781441823741, 56.0, 1902.7057556219027)
-[10:42:21] [Server thread/INFO]: Koenn joined the game
-[10:42:22] [Server thread/INFO]: Saving and pausing game...
-[10:42:22] [Server thread/INFO]: Saving chunks for level 'Test World'/overworld
-[10:42:22] [Server thread/INFO]: Saving chunks for level 'Test World'/the_nether
-[10:42:22] [Server thread/INFO]: Saving chunks for level 'Test World'/the_end
-[10:42:22] [main/INFO]: Loaded 4 advancements
-[10:42:24] [Server thread/INFO]: Saving and pausing game...
-[10:42:24] [Server thread/INFO]: Saving chunks for level 'Test World'/overworld
-[10:42:24] [Server thread/INFO]: Saving chunks for level 'Test World'/the_nether
-[10:42:24] [Server thread/INFO]: Saving chunks for level 'Test World'/the_end
-[10:42:34] [Server thread/INFO]: Saving and pausing game...
-[10:42:34] [Server thread/INFO]: Saving chunks for level 'Test World'/overworld
-[10:42:34] [Server thread/INFO]: Saving chunks for level 'Test World'/the_nether
-[10:42:34] [Server thread/INFO]: Saving chunks for level 'Test World'/the_end
-[10:42:35] [Server thread/INFO]: Stopping server
-[10:42:35] [Server thread/INFO]: Saving players
-[10:42:35] [Server thread/INFO]: Koenn lost connection: Disconnected
-[10:42:35] [Server thread/INFO]: Koenn left the game
-[10:42:35] [Server thread/INFO]: Stopping singleplayer server as player logged out
-[10:42:35] [Server thread/INFO]: Saving worlds
-[10:42:35] [Server thread/INFO]: Saving chunks for level 'Test World'/overworld
-[10:42:35] [Server thread/INFO]: Saving chunks for level 'Test World'/the_nether
-[10:42:35] [Server thread/INFO]: Saving chunks for level 'Test World'/the_end
-[10:42:35] [Server thread/INFO]: Unloading dimension 0
-[10:42:35] [Server thread/INFO]: Unloading dimension -1
-[10:42:35] [Server thread/INFO]: Unloading dimension 1
-[10:42:36] [Server thread/INFO]: Applying holder lookups
-[10:42:36] [Server thread/INFO]: Holder lookups applied
-[10:42:38] [Server thread/INFO]: Starting integrated minecraft server version 1.12
-[10:42:38] [Server thread/INFO]: Generating keypair
-[10:42:38] [Server thread/INFO]: Injecting existing registry data into this server instance
-[10:42:38] [Server thread/INFO]: Registry Block: Found a missing id from the world elementol:myspecialblock
-[10:42:38] [Server thread/INFO]: Registry Block: Found a missing id from the world elementol:test_block
-[10:42:38] [Server thread/INFO]: Applying holder lookups
-[10:42:38] [Server thread/INFO]: Holder lookups applied
-[10:42:38] [Server thread/INFO]: Loading dimension 0 (Test World) (net.minecraft.server.integrated.IntegratedServer@1fd4a461)
-[10:42:38] [Server thread/INFO]: Loaded 488 advancements
-[10:42:38] [Server thread/INFO]: Loading dimension 1 (Test World) (net.minecraft.server.integrated.IntegratedServer@1fd4a461)
-[10:42:38] [Server thread/INFO]: Loading dimension -1 (Test World) (net.minecraft.server.integrated.IntegratedServer@1fd4a461)
-[10:42:38] [Server thread/INFO]: Preparing start region for level 0
-[10:42:39] [Server thread/INFO]: Changing view distance to 8, from 10
-[10:42:39] [Netty Local Client IO #2/INFO]: Server protocol version 2
-[10:42:39] [Netty Server IO #5/INFO]: Client protocol version 2
-[10:42:39] [Netty Server IO #5/INFO]: Client attempting to join with 5 mods : minecraft@1.12,FML@8.0.99.99,forge@14.21.1.2443,mcp@9.19,elementol@1.0-SNAPSHOT
-[10:42:39] [Netty Local Client IO #2/INFO]: [Netty Local Client IO #2] Client side modded connection established
-[10:42:39] [Server thread/INFO]: [Server thread] Server side modded connection established
-[10:42:39] [Server thread/INFO]: Koenn[local:E:0d476590] logged in with entity id 15733 at (-785.961435920381, 56.0, 1902.8520461810424)
-[10:42:39] [Server thread/INFO]: Koenn joined the game
-[10:42:40] [Server thread/INFO]: Saving and pausing game...
-[10:42:40] [Server thread/INFO]: Saving chunks for level 'Test World'/overworld
-[10:42:40] [Server thread/INFO]: Saving chunks for level 'Test World'/the_nether
-[10:42:40] [main/INFO]: Loaded 4 advancements
-[10:42:40] [Server thread/INFO]: Saving chunks for level 'Test World'/the_end
-[10:42:51] [Server thread/INFO]: Saving and pausing game...
-[10:42:51] [Server thread/INFO]: Saving chunks for level 'Test World'/overworld
-[10:42:51] [Server thread/INFO]: Saving chunks for level 'Test World'/the_nether
-[10:42:51] [Server thread/INFO]: Saving chunks for level 'Test World'/the_end
-[10:42:51] [Server thread/INFO]: Stopping server
-[10:42:51] [Server thread/INFO]: Saving players
-[10:42:51] [Server thread/INFO]: Koenn lost connection: Disconnected
-[10:42:51] [Server thread/INFO]: Koenn left the game
-[10:42:51] [Server thread/INFO]: Stopping singleplayer server as player logged out
-[10:42:51] [Server thread/INFO]: Saving worlds
-[10:42:51] [Server thread/INFO]: Saving chunks for level 'Test World'/overworld
-[10:42:51] [Server thread/INFO]: Saving chunks for level 'Test World'/the_nether
-[10:42:51] [Server thread/INFO]: Saving chunks for level 'Test World'/the_end
-[10:42:51] [Server thread/INFO]: Unloading dimension 0
-[10:42:51] [Server thread/INFO]: Unloading dimension -1
-[10:42:51] [Server thread/INFO]: Unloading dimension 1
-[10:42:52] [Server thread/INFO]: Applying holder lookups
-[10:42:52] [Server thread/INFO]: Holder lookups applied
-[10:42:59] [main/INFO]: Stopping!
-[10:42:59] [main/INFO]: SoundSystem shutting down...
-[10:42:59] [main/WARN]: Author: Paul Lamb, www.paulscode.com
+[08:11:56] [main/INFO]: MinecraftForge v14.21.1.2443 Initialized
+[08:11:56] [main/INFO]: Replaced 921 ore ingredients
+[08:11:57] [main/INFO]: Found 0 mods from the command line. Injecting into mod discoverer
+[08:11:57] [main/INFO]: Searching G:\Random Projects\Elementol\run\mods for mods
+[08:11:58] [Thread-3/INFO]: Using sync timing. 200 frames of Display.update took 160071146 nanos
+[08:11:58] [main/INFO]: Forge Mod Loader has identified 5 mods to load
+[08:11:59] [main/INFO]: Attempting connection with missing mods [minecraft, mcp, FML, forge, elementol] at CLIENT
+[08:11:59] [main/INFO]: Attempting connection with missing mods [minecraft, mcp, FML, forge, elementol] at SERVER
+[08:12:00] [main/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Elementol
+[08:12:00] [main/INFO]: Processing ObjectHolder annotations
+[08:12:00] [main/INFO]: Found 1168 ObjectHolder annotations
+[08:12:00] [main/INFO]: Identifying ItemStackHolder annotations
+[08:12:00] [main/INFO]: Found 0 ItemStackHolder annotations
+[08:12:00] [main/INFO]: Configured a dormant chunk cache size of 0
+[08:12:00] [main/INFO]: Woooooo, we're initializing!
+[08:12:00] [Forge Version Check/INFO]: [forge] Starting version check at http://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json
+[08:12:00] [main/INFO]: Applying holder lookups
+[08:12:00] [main/INFO]: Holder lookups applied
+[08:12:00] [main/INFO]: Applying holder lookups
+[08:12:00] [main/INFO]: Holder lookups applied
+[08:12:00] [main/INFO]: Applying holder lookups
+[08:12:00] [main/INFO]: Holder lookups applied
+[08:12:01] [main/INFO]: Applying holder lookups
+[08:12:01] [main/INFO]: Holder lookups applied
+[08:12:01] [main/INFO]: Injecting itemstacks
+[08:12:01] [main/INFO]: Itemstack injection complete
+[08:12:01] [Forge Version Check/INFO]: [forge] Found status: AHEAD Target: null
+[08:12:08] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[08:12:08] [Thread-5/INFO]: Initializing LWJGL OpenAL
+[08:12:08] [Thread-5/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[08:12:08] [Thread-5/INFO]: OpenAL initialized.
+[08:12:09] [Sound Library Loader/INFO]: Sound engine started
+[08:12:18] [main/INFO]: Max texture size: 16384
+[08:12:19] [main/INFO]: Created: 512x512 textures-atlas
+[08:12:22] [main/INFO]: Applying holder lookups
+[08:12:22] [main/INFO]: Holder lookups applied
+[08:12:22] [main/INFO]: Injecting itemstacks
+[08:12:22] [main/INFO]: Itemstack injection complete
+[08:12:22] [main/INFO]: Forge Mod Loader has successfully loaded 5 mods
+[08:12:22] [main/WARN]: Skipping bad option: lastServer:
+[08:12:22] [main/INFO]: Narrator library for x64 successfully loaded
+[08:12:24] [Realms Notification Availability checker #1/INFO]: Could not authorize you against Realms server: Invalid session id
+[08:12:27] [Server thread/INFO]: Starting integrated minecraft server version 1.12
+[08:12:27] [Server thread/INFO]: Generating keypair
+[08:12:27] [Server thread/INFO]: Injecting existing registry data into this server instance
+[08:12:27] [Server thread/INFO]: Registry Block: Found a missing id from the world elementol:myspecialblock
+[08:12:27] [Server thread/INFO]: Registry Block: Found a missing id from the world elementol:test_block
+[08:12:27] [Server thread/INFO]: Applying holder lookups
+[08:12:27] [Server thread/INFO]: Holder lookups applied
+[08:12:28] [Server thread/INFO]: Loading dimension 0 (Test World) (net.minecraft.server.integrated.IntegratedServer@fb59535)
+[08:12:28] [Server thread/INFO]: Loaded 488 advancements
+[08:12:28] [Server thread/INFO]: Loading dimension 1 (Test World) (net.minecraft.server.integrated.IntegratedServer@fb59535)
+[08:12:29] [Server thread/INFO]: Loading dimension -1 (Test World) (net.minecraft.server.integrated.IntegratedServer@fb59535)
+[08:12:29] [Server thread/INFO]: Preparing start region for level 0
+[08:12:29] [Server thread/INFO]: Changing view distance to 8, from 10
+[08:12:31] [Netty Local Client IO #0/INFO]: Server protocol version 2
+[08:12:31] [Netty Server IO #1/INFO]: Client protocol version 2
+[08:12:31] [Netty Server IO #1/INFO]: Client attempting to join with 5 mods : minecraft@1.12,FML@8.0.99.99,forge@14.21.1.2443,mcp@9.19,elementol@1.0-SNAPSHOT
+[08:12:32] [Netty Local Client IO #0/INFO]: [Netty Local Client IO #0] Client side modded connection established
+[08:12:32] [Server thread/INFO]: [Server thread] Server side modded connection established
+[08:12:32] [Server thread/INFO]: Player398[local:E:68f944aa] logged in with entity id 0 at (2.734584627471666, 56.0, 8.166179568569847)
+[08:12:32] [Server thread/INFO]: Player398 joined the game
+[08:12:34] [Server thread/INFO]: Saving and pausing game...
+[08:12:34] [Server thread/INFO]: Saving chunks for level 'Test World'/overworld
+[08:12:34] [Server thread/INFO]: Saving chunks for level 'Test World'/the_nether
+[08:12:34] [Server thread/INFO]: Saving chunks for level 'Test World'/the_end
+[08:12:35] [pool-2-thread-1/WARN]: Couldn't look up profile properties for com.mojang.authlib.GameProfile@214ef875[id=4878bcfc-e338-372f-9bb9-254339edb686,name=Player398,properties={},legacy=false]
+com.mojang.authlib.exceptions.AuthenticationException: The client has sent too many requests within a certain amount of time
+	at com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService.makeRequest(YggdrasilAuthenticationService.java:79) ~[YggdrasilAuthenticationService.class:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService.fillGameProfile(YggdrasilMinecraftSessionService.java:180) [YggdrasilMinecraftSessionService.class:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService$1.load(YggdrasilMinecraftSessionService.java:60) [YggdrasilMinecraftSessionService$1.class:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService$1.load(YggdrasilMinecraftSessionService.java:57) [YggdrasilMinecraftSessionService$1.class:?]
+	at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3716) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2424) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2298) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2211) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache.get(LocalCache.java:4154) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache.getOrLoad(LocalCache.java:4158) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$LocalLoadingCache.get(LocalCache.java:5147) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$LocalLoadingCache.getUnchecked(LocalCache.java:5153) [guava-21.0.jar:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService.fillProfileProperties(YggdrasilMinecraftSessionService.java:170) [YggdrasilMinecraftSessionService.class:?]
+	at net.minecraft.client.Minecraft.getProfileProperties(Minecraft.java:3190) [Minecraft.class:?]
+	at net.minecraft.client.resources.SkinManager$3.run(SkinManager.java:138) [SkinManager$3.class:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [?:1.8.0_101]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [?:1.8.0_101]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [?:1.8.0_101]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [?:1.8.0_101]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_101]
+[08:21:31] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2937ms behind, skipping 58 tick(s)
+[08:22:31] [Server thread/INFO]: Saving and pausing game...
+[08:22:31] [Server thread/INFO]: Saving chunks for level 'Test World'/overworld
+[08:22:31] [Server thread/INFO]: Saving chunks for level 'Test World'/the_nether
+[08:22:31] [Server thread/INFO]: Saving chunks for level 'Test World'/the_end
+[08:22:31] [Server thread/INFO]: Stopping server
+[08:22:31] [Server thread/INFO]: Saving players
+[08:22:31] [Server thread/INFO]: Player398 lost connection: Disconnected
+[08:22:31] [Server thread/INFO]: Player398 left the game
+[08:22:31] [Server thread/INFO]: Stopping singleplayer server as player logged out
+[08:22:31] [Server thread/INFO]: Saving worlds
+[08:22:31] [Server thread/INFO]: Saving chunks for level 'Test World'/overworld
+[08:22:31] [Server thread/INFO]: Saving chunks for level 'Test World'/the_nether
+[08:22:31] [Server thread/INFO]: Saving chunks for level 'Test World'/the_end
+[08:22:31] [Server thread/INFO]: Unloading dimension 0
+[08:22:31] [Server thread/INFO]: Unloading dimension -1
+[08:22:31] [Server thread/INFO]: Unloading dimension 1
+[08:22:35] [Server thread/INFO]: Applying holder lookups
+[08:22:35] [Server thread/INFO]: Holder lookups applied
+[08:22:36] [main/INFO]: Stopping!
+[08:22:36] [main/INFO]: SoundSystem shutting down...
+[08:22:36] [main/WARN]: Author: Paul Lamb, www.paulscode.com

@@ -1,6 +1,7 @@
 package me.koenn.elementol.client.tesr;
 
-import me.koenn.elementol.client.model.ModelEnergizer;
+import me.koenn.elementol.client.model.ModelConnector;
+import me.koenn.elementol.client.model.ModelPlate;
 import me.koenn.elementol.tileentities.TileEntityEnergizer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
@@ -20,7 +21,8 @@ public class TESREnergizer extends TileEntitySpecialRenderer<TileEntityEnergizer
     private static final float SCALE = 0.0625F;
     private static final float COLOR = 0.35F;
 
-    private final ModelEnergizer model = new ModelEnergizer();
+    private final ModelConnector model = new ModelConnector();
+    private final ModelPlate modelPlate = new ModelPlate();
 
     @Override
     public void render(TileEntityEnergizer te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
@@ -33,6 +35,20 @@ public class TESREnergizer extends TileEntitySpecialRenderer<TileEntityEnergizer
             this.bindTexture(GOLD_BLOCK);
 
             this.model.render(null, 0, 0, 0, 0, 0, 1.0F);
+
+            this.modelPlate.render(null, 0, 0, 0, 0, 0, 1.0F);
+
+            GlStateManager.rotate(90, 0, 1, 0);
+            GlStateManager.translate(-16, 0, 0);
+            this.modelPlate.render(null, 0, 0, 0, 0, 0, 1.0F);
+
+            GlStateManager.rotate(90, 0, 1, 0);
+            GlStateManager.translate(-16, 0, 0);
+            this.modelPlate.render(null, 0, 0, 0, 0, 0, 1.0F);
+
+            GlStateManager.rotate(90, 0, 1, 0);
+            GlStateManager.translate(-16, 0, 0);
+            this.modelPlate.render(null, 0, 0, 0, 0, 0, 1.0F);
 
             GlStateManager.popMatrix();
         }
