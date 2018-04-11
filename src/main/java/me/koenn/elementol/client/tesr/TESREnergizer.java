@@ -1,8 +1,6 @@
 package me.koenn.elementol.client.tesr;
 
 import me.koenn.elementol.client.model.ModelConnector;
-import me.koenn.elementol.client.model.ModelPlate;
-import me.koenn.elementol.items.ItemElementalGem;
 import me.koenn.elementol.tileentities.TileEntityEnergizer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
@@ -19,11 +17,9 @@ import org.lwjgl.opengl.GL11;
 public class TESREnergizer extends TileEntitySpecialRenderer<TileEntityEnergizer> {
 
     private static final ResourceLocation GOLD_BLOCK = new ResourceLocation("textures/blocks/gold_block.png");
+    private static final ModelConnector CONNECTOR = new ModelConnector();
     private static final float SCALE = 0.0625F;
     private static final float COLOR = 0.35F;
-
-    private final ModelConnector model = new ModelConnector();
-    private final ModelPlate modelPlate = new ModelPlate();
 
     @Override
     public void render(TileEntityEnergizer te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
@@ -35,23 +31,7 @@ public class TESREnergizer extends TileEntitySpecialRenderer<TileEntityEnergizer
             GlStateManager.color(COLOR, COLOR, COLOR);
             this.bindTexture(GOLD_BLOCK);
 
-            this.model.render(null, 0, 0, 0, 0, 0, 1.0F);
-
-            if (te.inventory.getStackInSlot(0) != null && te.inventory.getStackInSlot(0).getItem() instanceof ItemElementalGem) {
-                this.modelPlate.render(null, 0, 0, 0, 0, 0, 1.0F);
-
-                GlStateManager.rotate(90, 0, 1, 0);
-                GlStateManager.translate(-16, 0, 0);
-                this.modelPlate.render(null, 0, 0, 0, 0, 0, 1.0F);
-
-                GlStateManager.rotate(90, 0, 1, 0);
-                GlStateManager.translate(-16, 0, 0);
-                this.modelPlate.render(null, 0, 0, 0, 0, 0, 1.0F);
-
-                GlStateManager.rotate(90, 0, 1, 0);
-                GlStateManager.translate(-16, 0, 0);
-                this.modelPlate.render(null, 0, 0, 0, 0, 0, 1.0F);
-            }
+            CONNECTOR.render(null, 0, 0, 0, 0, 0, 1.0F);
 
             GlStateManager.popMatrix();
         }
@@ -66,7 +46,7 @@ public class TESREnergizer extends TileEntitySpecialRenderer<TileEntityEnergizer
             GlStateManager.pushMatrix();
             GlStateManager.translate(x + 0.5, y + 0.7, z + 0.5);
             GlStateManager.scale(0.8, 0.8, 0.8);
-            GlStateManager.rotate((te.getWorld().getTotalWorldTime() + partialTicks) * 4, 0, 1, 0);
+            GlStateManager.rotate((te.getWorld().getTotalWorldTime() + partialTicks) * Math.max(te.progress / 4 > 4 ? 50 : 4, te.progress / 4), 0, 1, 0);
 
             IBakedModel model = Minecraft.getMinecraft().getRenderItem().getItemModelWithOverrides(stack, te.getWorld(), null);
             model = ForgeHooksClient.handleCameraTransforms(model, ItemCameraTransforms.TransformType.GROUND, false);

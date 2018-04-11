@@ -1,7 +1,9 @@
 package me.koenn.elementol.binding;
 
 import me.koenn.elementol.items.ModItems;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
@@ -54,10 +56,12 @@ public final class BindingRecipeManager {
 
     public static void registerRecipes() {
         registerRecipe(new BindingRecipe(
-                new ItemStack(Items.ARROW),
-                new ItemStack(ModItems.FIRE_CRYSTAL),
-                new ItemStack(Items.BAKED_POTATO),
-                new ItemStack(Items.APPLE), new ItemStack(Items.STICK)
+                new ItemStack(ModItems.BLANK_GEM),
+                new ItemStack(Items.BLAZE_POWDER),
+                new ItemStack(ModItems.FIRE_GEM),
+                new ItemStack(Items.GUNPOWDER),
+                new ItemStack(Items.NETHERBRICK),
+                new ItemStack(Item.getItemFromBlock(Blocks.TORCH))
         ));
     }
 }

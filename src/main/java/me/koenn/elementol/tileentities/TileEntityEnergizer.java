@@ -4,7 +4,7 @@ import me.koenn.elementol.Elementol;
 import me.koenn.elementol.blocks.ModBlocks;
 import me.koenn.elementol.items.ItemElementalCrystal;
 import me.koenn.elementol.items.ItemElementalGem;
-import me.koenn.elementol.network.PacketEnergizerParticle;
+import me.koenn.elementol.network.PacketUpdateEnergizer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
@@ -13,9 +13,9 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 public class TileEntityEnergizer extends TileEntityInventory implements ITickable {
 
     public static final int REQUIRED_CRYSTAL = 500;
-    public static final int REQUIRED_PROGRESS = 100;
+    public static final int REQUIRED_PROGRESS = 400;
 
-    private int progress;
+    public int progress;
 
     public TileEntityEnergizer() {
         super(1);
@@ -47,7 +47,7 @@ public class TileEntityEnergizer extends TileEntityInventory implements ITickabl
         if (this.isEnergizing()) {
             this.progress++;
             Elementol.networkWrapper.sendToAllAround(
-                    new PacketEnergizerParticle(this),
+                    new PacketUpdateEnergizer(this),
                     new NetworkRegistry.TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 64)
             );
 
@@ -58,6 +58,11 @@ public class TileEntityEnergizer extends TileEntityInventory implements ITickabl
 
                 TileEntityPylon pylon = (TileEntityPylon) this.world.getTileEntity(new BlockPos(this.getPos()).add(0, 1, 0));
                 pylon.inventory.extractItem(0, 1, false);
+
+                Elementol.networkWrapper.sendToAllAround(
+                        new PacketUpdateEnergizer(this),
+                        new NetworkRegistry.TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 64)
+                );
             }
             return;
         }
