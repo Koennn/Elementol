@@ -2,7 +2,6 @@ package me.koenn.elementol.tileentities;
 
 import me.koenn.elementol.binding.BindingRecipe;
 import me.koenn.elementol.binding.BindingRecipeManager;
-import me.koenn.elementol.items.ModItems;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -68,7 +67,7 @@ public class TileEntityBindingStone extends TileEntityInventory implements ITick
             //Check if it doesn't contain an item and if the item is a valid input -> insert primary input.
             if ((current == null || current.getItem().equals(Items.AIR)) && BindingRecipeManager.isInput(input)) {
                 this.world.removeEntity(item);
-                this.inventory.setStackInSlot(1, new ItemStack(ModItems.BLANK_GEM));
+                this.inventory.setStackInSlot(1, input);
                 this.inventory.setStackInSlot(0, input);
                 //Check if there is no recipe selected and if the input is a valid identifier -> insert identifier.
             } else if (this.currentRecipe == null && BindingRecipeManager.isIdentifier(current, input)) {

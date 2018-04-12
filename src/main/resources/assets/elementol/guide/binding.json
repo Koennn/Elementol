@@ -1,0 +1,16 @@
+{
+  "type": "listPage",
+  "title": "Binding",
+  "listItems": [
+    {
+      "name": "Binding",
+      "icon": "elementol:binding_stone",
+      "id": "binding/binding"
+    },
+    {
+      "name": "Gems",
+      "icon": "elementol:blank_gem",
+      "id": "binding/gems"
+    }
+  ]
+}

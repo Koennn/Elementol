@@ -1,6 +1,9 @@
 package me.koenn.elementol.tileentities;
 
 import me.koenn.elementol.items.ItemElementalCrystal;
+import net.minecraft.block.BlockLiquid;
+import net.minecraft.block.BlockStaticLiquid;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
@@ -10,7 +13,7 @@ import net.minecraft.world.biome.Biome;
 
 public class TileEntityPylon extends TileEntityInventory implements ITickable {
 
-    private static final int COOLDOWN = 40;
+    private static final int COOLDOWN = 20;
     private int currentCooldown;
 
     public TileEntityPylon() {
@@ -34,6 +37,9 @@ public class TileEntityPylon extends TileEntityInventory implements ITickable {
             return;
         }
         int currentAmount = ItemElementalCrystal.getCrystalAmount(crystal);
+        if (currentAmount == ItemElementalCrystal.MAX_CRYSTAL_AMOUNT) {
+            return;
+        }
 
         switch (crystal.getItem().getRegistryName().toString()) {
             case "elementol:fire_crystal":
@@ -43,7 +49,8 @@ public class TileEntityPylon extends TileEntityInventory implements ITickable {
                 break;
             case "elementol:water_crystal":
                 BlockPos waterPos = new BlockPos(this.pos).add(0, -1, 0);
-                if (this.world.getBlockState(waterPos).getBlock().equals(Blocks.WATER)) {
+                IBlockState state = this.world.getBlockState(waterPos);
+                if (state.getBlock().equals(Blocks.WATER) && state.getBlock() instanceof BlockStaticLiquid && state.getValue(BlockLiquid.LEVEL) == 0) {
                     this.world.setBlockToAir(waterPos);
                     addCrystal(crystal, currentAmount, 1);
                 }

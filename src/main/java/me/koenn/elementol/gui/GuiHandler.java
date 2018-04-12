@@ -6,6 +6,8 @@ import net.minecraftforge.fml.common.network.IGuiHandler;
 
 public class GuiHandler implements IGuiHandler {
 
+    public static final int GUIDE_ID = 0;
+
     @Override
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
         switch (ID) {
@@ -18,6 +20,8 @@ public class GuiHandler implements IGuiHandler {
     @Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
         switch (ID) {
+            case GUIDE_ID:
+                return new GuiGuide();
             default:
                 return null;
         }

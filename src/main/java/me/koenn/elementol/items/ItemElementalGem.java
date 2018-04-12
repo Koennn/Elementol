@@ -1,9 +1,16 @@
 package me.koenn.elementol.items;
 
+import me.koenn.elementol.Elementol;
+import me.koenn.elementol.gui.GuiHandler;
 import me.koenn.elementol.helper.ItemNBTHelper;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.NonNullList;
+import net.minecraft.world.World;
 
 public class ItemElementalGem extends ItemBase {
 
@@ -41,6 +48,14 @@ public class ItemElementalGem extends ItemBase {
             makeEnergized(energized);
             items.add(energized);
         }
+    }
+
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+        if (worldIn.isRemote) {
+            playerIn.openGui(Elementol.instance, GuiHandler.GUIDE_ID, worldIn, (int) playerIn.posX, (int) playerIn.posY, (int) playerIn.posZ);
+        }
+        return new ActionResult<>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
     }
 
     @Override

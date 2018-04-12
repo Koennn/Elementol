@@ -7,6 +7,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>
@@ -66,7 +67,12 @@ public final class BindingRecipeManager {
         registerRecipe(new BindingRecipe(
                 new ItemStack(ModItems.UNBOUND_CRYSTAL),
                 new ItemStack(ModItems.FIRE_GEM),
+                new ItemStack(ModItems.FIRE_CRYSTAL),
                 new ItemStack(Items.BLAZE_POWDER)
         ));
+    }
+
+    public static List<BindingRecipe> getRecipes() {
+        return recipes;
     }
 }

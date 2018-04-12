@@ -1,0 +1,40 @@
+{
+  "type": "pages",
+  "pages": [
+    {
+      "type": "textPage",
+      "title": "Gems",
+      "text": "Gems are a combination of Stone and a Diamond, and are capable of storing the power of an element. To bind an element to a Blank Gem you can use a Binding Stone."
+    },
+    {
+      "type": "recipePage",
+      "item": "elementol:blank_gem",
+      "description": "The Blank Gem is made from some Stone and Lutetium.",
+      "recipeType": "CRAFTING"
+    },
+    {
+      "type": "recipePage",
+      "item": "elementol:fire_gem",
+      "description": "The Fire Gem is made with a Blank Gem, Blaze Powder, a Fire Charge, Gunpowder and Coal.",
+      "recipeType": "BINDING"
+    },
+    {
+      "type": "recipePage",
+      "item": "elementol:water_gem",
+      "description": "The Water Gem is made with a Blank Gem, a Water Bucket, a Fish, a Fishing Rod, and Sugar Cane.",
+      "recipeType": "BINDING"
+    },
+    {
+      "type": "recipePage",
+      "item": "elementol:air_gem",
+      "description": "The Air Gem is made with a Blank Gem, a Feather, an Empty Bottle, String and a Bucket.",
+      "recipeType": "BINDING"
+    },
+    {
+      "type": "recipePage",
+      "item": "elementol:earth_gem",
+      "description": "The Earth Gem is made with a Blank Gem, Crushed Dirt, Flint, an Iron Ingot and a Brick.",
+      "recipeType": "BINDING"
+    }
+  ]
+}

@@ -19,6 +19,9 @@ public class BindingRecipe {
         this.input = input;
         this.identifier = identifier;
         this.result = result;
+        if (ingredients == null || ingredients.length == 0) {
+            throw new IllegalArgumentException("Cannot register a binding recipe without ingredients!");
+        }
         this.ingredients = ingredients;
     }
 

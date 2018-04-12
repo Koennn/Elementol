@@ -1,0 +1,11 @@
+{
+  "type": "listPage",
+  "title": "Elementol Guide",
+  "listItems": [
+    {
+      "name": "Binding",
+      "icon": "elementol:binding_stone",
+      "id": "binding"
+    }
+  ]
+}

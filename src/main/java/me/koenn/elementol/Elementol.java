@@ -70,7 +70,8 @@ public final class Elementol {
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-
+        //Load the guide.
+        proxy.loadGuide();
     }
 
     @Mod.EventBusSubscriber

@@ -1,0 +1,21 @@
+{
+  "type": "pages",
+  "pages": [
+    {
+      "type": "textPage",
+      "title": "Binding",
+      "text": "The Binding Stone is a magical device that can be used to bind elements to items. After binding an element to an item, that item will have the power of that element."
+    },
+    {
+      "type": "recipePage",
+      "item": "elementol:binding_stone",
+      "description": "The Binding Stone can be crafted with a block of lutetium and some blank gems.",
+      "recipeType": "CRAFTING"
+    },
+    {
+      "type": "textPage",
+      "title": "Usage",
+      "text": "First, throw the item you want to bind something to on the stone. Then the element identifier. For fire it's Blaze Powder, for water a Water Bucket, for air a Feather and for earth some Crushed Dirt. After the identifier the Binding Stone will tell you what it needs next."
+    }
+  ]
+}

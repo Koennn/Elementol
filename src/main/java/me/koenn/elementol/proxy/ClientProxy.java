@@ -4,6 +4,7 @@ import me.koenn.elementol.Elementol;
 import me.koenn.elementol.client.tesr.TESRBindingStone;
 import me.koenn.elementol.client.tesr.TESREnergizer;
 import me.koenn.elementol.client.tesr.TESRPylon;
+import me.koenn.elementol.guide.GuideLoader;
 import me.koenn.elementol.tileentities.TileEntityBindingStone;
 import me.koenn.elementol.tileentities.TileEntityEnergizer;
 import me.koenn.elementol.tileentities.TileEntityPylon;
@@ -34,5 +35,11 @@ public class ClientProxy extends CommonProxy {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBindingStone.class, new TESRBindingStone());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPylon.class, new TESRPylon());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityEnergizer.class, new TESREnergizer());
+    }
+
+    @Override
+    public void loadGuide() {
+        GuideLoader guideLoader = new GuideLoader();
+        guideLoader.load();
     }
 }
