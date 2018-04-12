@@ -63,5 +63,10 @@ public final class BindingRecipeManager {
                 new ItemStack(Items.NETHERBRICK),
                 new ItemStack(Item.getItemFromBlock(Blocks.TORCH))
         ));
+        registerRecipe(new BindingRecipe(
+                new ItemStack(ModItems.UNBOUND_CRYSTAL),
+                new ItemStack(ModItems.FIRE_GEM),
+                new ItemStack(Items.BLAZE_POWDER)
+        ));
     }
 }

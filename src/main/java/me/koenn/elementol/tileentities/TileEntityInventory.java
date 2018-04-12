@@ -59,12 +59,18 @@ public class TileEntityInventory extends TileEntity {
 
     @Override
     public boolean hasCapability(Capability<?> capability, @Nullable EnumFacing facing) {
+        if (facing == null) {
+            return false;
+        }
         return (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY && (this.inventoryFaces.isEmpty() || this.inventoryFaces.contains(facing))) || super.hasCapability(capability, facing);
     }
 
     @Nullable
     @Override
     public <T> T getCapability(Capability<T> capability, @Nullable EnumFacing facing) {
+        if (facing == null) {
+            return super.getCapability(capability, facing);
+        }
         return capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY ? ((this.inventoryFaces.isEmpty() || this.inventoryFaces.contains(facing)) ? (T) this.inventory : null) : super.getCapability(capability, facing);
     }
 

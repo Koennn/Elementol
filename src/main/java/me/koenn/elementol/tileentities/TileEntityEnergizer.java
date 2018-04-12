@@ -36,6 +36,21 @@ public class TileEntityEnergizer extends TileEntityInventory implements ITickabl
         }
 
         if (!this.hasPylon()) {
+            if (this.progress > 0) {
+                this.progress = 0;
+                this.updateTile();
+            }
+            return;
+        }
+
+        TileEntityPylon pylon = (TileEntityPylon) this.world.getTileEntity(new BlockPos(this.getPos()).add(0, 1, 0));
+        ItemStack pylonItem = pylon.inventory.getStackInSlot(0);
+        if (pylonItem == null || !(pylonItem.getItem() instanceof ItemElementalCrystal)) {
+            this.progress = 0;
+            if (this.progress > 0) {
+                this.progress = 0;
+                this.updateTile();
+            }
             return;
         }
 
@@ -46,37 +61,36 @@ public class TileEntityEnergizer extends TileEntityInventory implements ITickabl
 
         if (this.isEnergizing()) {
             this.progress++;
-            Elementol.networkWrapper.sendToAllAround(
-                    new PacketUpdateEnergizer(this),
-                    new NetworkRegistry.TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 64)
-            );
+            this.updateTile();
 
             if (this.progress >= REQUIRED_PROGRESS) {
                 this.progress = 0;
                 ItemElementalGem.makeEnergized(item);
                 this.inventory.setStackInSlot(0, item);
 
-                TileEntityPylon pylon = (TileEntityPylon) this.world.getTileEntity(new BlockPos(this.getPos()).add(0, 1, 0));
-                pylon.inventory.extractItem(0, 1, false);
+                ItemElementalCrystal.setCrystalAmount(pylonItem, 0);
+                pylon.inventory.setStackInSlot(0, pylonItem);
 
-                Elementol.networkWrapper.sendToAllAround(
-                        new PacketUpdateEnergizer(this),
-                        new NetworkRegistry.TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 64)
-                );
+                this.updateTile();
             }
             return;
         }
 
-        TileEntityPylon pylon = (TileEntityPylon) this.world.getTileEntity(new BlockPos(this.getPos()).add(0, 1, 0));
-        ItemStack pylonItem = pylon.inventory.getStackInSlot(0);
-        if (pylonItem == null || !(pylonItem.getItem() instanceof ItemElementalCrystal)) {
-            return;
+        if (ItemElementalCrystal.getCrystalAmount(pylonItem) >= REQUIRED_CRYSTAL) {
+            this.progress++;
         }
+    }
 
-        if (ItemElementalCrystal.getCrystalAmount(pylonItem) < REQUIRED_CRYSTAL) {
-            return;
-        }
-
-        this.progress++;
+    private void updateTile() {
+        Elementol.networkWrapper.sendToAllAround(
+                new PacketUpdateEnergizer(this),
+                new NetworkRegistry.TargetPoint(
+                        this.world.provider.getDimension(),
+                        this.pos.getX(),
+                        this.pos.getY(),
+                        this.pos.getZ(),
+                        64
+                )
+        );
     }
 }

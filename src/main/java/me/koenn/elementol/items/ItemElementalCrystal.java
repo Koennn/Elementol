@@ -24,7 +24,7 @@ public class ItemElementalCrystal extends ItemBase {
         if (getCrystalAmount(crystal) >= MAX_CRYSTAL_AMOUNT) {
             ItemNBTHelper.getNBT(crystal).setInteger(TAG_AMOUNT, MAX_CRYSTAL_AMOUNT);
         } else {
-            ItemNBTHelper.getNBT(crystal).setInteger(TAG_AMOUNT, amount);
+            ItemNBTHelper.getNBT(crystal).setInteger(TAG_AMOUNT, Math.max(amount, 0));
         }
     }
 

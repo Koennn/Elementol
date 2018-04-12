@@ -14,10 +14,12 @@ public final class ModItems {
     public static final ItemBase WATER_CRYSTAL = new ItemElementalCrystal("water_crystal");
     public static final ItemBase AIR_CRYSTAL = new ItemElementalCrystal("air_crystal");
     public static final ItemBase EARTH_CRYSTAL = new ItemElementalCrystal("earth_crystal");
+    public static final ItemBase UNBOUND_CRYSTAL = new ItemBase("unbound_crystal");
 
     public static final ItemBase[] ALL_ITEMS = new ItemBase[]{
             BLANK_GEM, FIRE_GEM, WATER_GEM, AIR_GEM, EARTH_GEM,
-            FIRE_CRYSTAL, WATER_CRYSTAL, AIR_CRYSTAL, EARTH_CRYSTAL
+            FIRE_CRYSTAL, WATER_CRYSTAL, AIR_CRYSTAL, EARTH_CRYSTAL,
+            UNBOUND_CRYSTAL
     };
 
     public static void register(IForgeRegistry<Item> registry) {
